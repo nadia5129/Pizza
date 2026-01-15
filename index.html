@@ -37,7 +37,7 @@
             <input type="text" id="lname" name="lname">
 
             <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email">
+            <input type="text" id="email" name="email">
         </fieldset>
 
     <!--Pick up or delivery options-->
@@ -53,15 +53,72 @@
     <!--Toppings-->
     <fieldset>
         <legend>Select Toppings</legend>
+        <label for="pepperoni">
+            <input type="checkbox" 
+            id="pepperoni" 
+            name="topping[]"
+            value="pepperoni">Pepperoni </label>
+
+             <label for="mushrooms">
+            <input type="checkbox" 
+            id="mushrooms" 
+            name="topping[]"
+            value="mushrooms">Mushrooms </label>
+
+            <label for="Green Peppers">
+            <input type="checkbox" 
+            id="green-peppers" 
+            name="topping[]"
+            value="green peppers">Green Peppers </label>
+
+            <label for="Olives">
+            <input type="checkbox" 
+            id="olives" 
+            name="topping[]"
+            value="olives">Olives </label>
+
+            <label for="Onion">
+            <input type="checkbox" 
+            id="Onion" 
+            name="topping[]"
+            value="onion">Onion </label>
+
+            <label for="Spinach">
+            <input type="checkbox" 
+            id="spinach" 
+            name="topping[]"
+            value="spinach">Spinach </label>
+
+             <label for="Pineapple">
+            <input type="checkbox" 
+            id="pineapple" 
+            name="topping[]"
+            value="pineapple">Pineapple </label>
     </fieldset>
 
        <!--Pizza size-->
     <fieldset>
         <legend>Pizza Size</legend>
+        <select id="size" name="size">
+            <option value="none">--Select Size--</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="extra-large">Extra Large</option>
+        </select>
     </fieldset>
 
+    <!-- Comment field -->
+     <label for="comments">Comments or Special Instructions:</label>
+     <textarea rows="5"  id="comments" name="comments"></textarea>
+
+     <!-- Sign me up for discounts -->
+      <label for="discounts">
+       <input type="checkbox" id="discounts" name="discounts" checked> Sign me up for special offers and discounts!</label>
+
+
     <!--Submit button-->
-    <button tyoe="submit" id="order-button">Place Order</button>
+    <button type="submit" id="order-button">Place Order</button>
 </form>
 
       </main>
