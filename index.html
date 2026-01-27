@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papa's Pizza</title>
 
-    <!-- favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="images/pizza slice.jpg">
 
-    <!-- stylesheet -->
+    <!-- Stylesheet -->
      <link rel="stylesheet" href="styles/styles-pizza.css">
+
+    <!-- JavaScript -->
      <script src="pizza.js" defer></script>
 </head>
 
@@ -31,13 +33,13 @@
         <fieldset>
             <legend>Contact Information</legend>
 
-            <label for="fname">First Name:</label>
+            <label for="fname">First Name: <span class="err" id="err-fname">First name is required</span></label>
             <input type="text" id="fname" name="fname">
 
-            <label for="lname">Last Name:</label>
+            <label for="lname">Last Name: <span class="err" id="err-lname">Last name is required</span></label>
             <input type="text" id="lname" name="lname">
 
-            <label for="email">Email Address:</label>
+            <label for="email">Email Address: <span class="err" id="err-email">Email is required</span></label>
             <input type="text" id="email" name="email">
         </fieldset>
 
