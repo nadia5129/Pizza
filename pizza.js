@@ -31,6 +31,24 @@ function validate(){
         document.getElementById("err-email").style.display="block";
         isValid =false;
     }
+
+    //pizza size validation
+    let size = document.getElementById("size").value;
+    if(size == "none"){
+        document.getElementById("err-size").style.display="block";
+        isValid =false;
+    }
+
+    //pickup or delivery validation
+    let pickup = document.getElementById("pickup");
+    let delivery = document.getElementById("delivery");
+    if(!pickup.checked && !delivery.checked){
+        document.getElementById("err-method").style.display="block";
+        isValid =false;
+    }
+
+
+
     return isValid;
 
 }
