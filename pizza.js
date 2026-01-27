@@ -1,3 +1,4 @@
+// anything client side can be manipulated
 
 //option to write annonymous function
 // document.getElementById("pizza-form").onsubmit = () => {
@@ -46,8 +47,6 @@ function validate(){
         document.getElementById("err-method").style.display="block";
         isValid =false;
     }
-
-
 
     return isValid;
 
