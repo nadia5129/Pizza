@@ -13,7 +13,7 @@
      <link rel="stylesheet" href="styles/styles-pizza.css">
 
     <!-- JavaScript -->
-     <script src="pizza.js" defer></script>
+     <script src="js/pizza.js" defer></script>
 </head>
 
 <body>
@@ -24,11 +24,11 @@
             <h2>Serving GRC Students for 50 Years</h2>
             <hr>
             <p>Come check us out</p>
-            <a id="contact-button" href="#" role="button">Contact Us</a>
+            <a id="contact-button" href="/contact-us" role="button">Contact Us</a>
         </header>
   
-
-    <form id="pizza-form" action="#" method="get">
+<!-- post method is more secure than get-->
+    <form id="pizza-form" action="/submit-order" method="post">
         <!--Contact info-->
         <fieldset>
             <legend>Contact Information</legend>
