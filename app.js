@@ -10,6 +10,9 @@ const PORT = 3000;
 //enable static file serving
 app.use(express.static('public'));
 
+//set ejs as view engine
+app.set('view engine', 'ejs');
+
 
 //add middleware - allow express to read the data thats in the form
 //form data and store it in req.body
@@ -46,17 +49,18 @@ app.post('/submit-order', (req, res) => {
 
     //create a json object to store the order data
     const order={
-        fname: req.body.fname,
+       fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
         method: req.body.method,
-        toppings: req.body.toppings,
-        comments: req.body.comments,
+        toppings: req.body.toppings ? req.body.toppings : "none",
+        size: req.body.size,
+        comment: req.body.comment,
         timestamp: new Date()
     };
 
     //add order object to orders array
-    orders.push(orders);
+    orders.push(order);
    
     res.sendFile(`${import.meta.dirname}/views/confirmation.html`)
 
