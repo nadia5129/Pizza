@@ -24,26 +24,28 @@ const orders =[];
 
 //define our main route ('/')
 app.get('/', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+    res.render('home');
 });
+
 
 //contact route
 app.get('/contact-us', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/contact.html`);
+    res.render('contact');
 });
 
 //confirmation route
 app.get('/thank-you', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+    res.render('confirmation');
 });
 
-//admin route that displays order arrays
+//admin route 
+//passed in orders in my admin route 
 app.get('/admin', (req, res) => {
-    res.send(orders);
+    res.render('admin', {orders});
 });
 
 //submit order route
-//"fname":"a","lname":"s","email":"nadiaivanishchuk@yahoo.com","method":"pickup","topping":["pepperoni"],"size":"medium","comments":"","discounts":"on"}
+//"fname":"a","lname":"s","email":"nadi@yahoo.com","method":"pickup","topping":["pepperoni"],"size":"medium","comments":"","discounts":"on"}
 app.post('/submit-order', (req, res) => {
 
 
@@ -61,8 +63,7 @@ app.post('/submit-order', (req, res) => {
 
     //add order object to orders array
     orders.push(order);
-   
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`)
+    res.render('confirmation',{ order});
 
     });
  
