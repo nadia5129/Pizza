@@ -1,57 +1,47 @@
-//import express module
 import express from 'express';
-
-//create an instance of express application
 const app = express();
-
-//define a port number
 const PORT = 3000;
-
-//enable static file serving
 app.use(express.static('public'));
 
-//set ejs as view engine
+// Set EJS as the view engine
 app.set('view engine', 'ejs');
 
+// "Middleware" that allows express to read
+// form data and store it in req.body
+app.use(express.urlencoded({ extended: true }));
 
-//add middleware - allow express to read the data thats in the form
-//form data and store it in req.body
-app.use(express.urlencoded({extended: true}));
+// Create a temp array to store orders
+const orders = []; 
 
-
-//create a temporary array to store orders
-const orders =[]; 
-
-//define our main route ('/')
+// Default route
 app.get('/', (req, res) => {
     res.render('home');
 });
 
-
-//contact route
+// Contact route
 app.get('/contact-us', (req, res) => {
     res.render('contact');
 });
 
-//confirmation route
+// Confirmation route
 app.get('/thank-you', (req, res) => {
     res.render('confirmation');
 });
 
-//admin route 
-//passed in orders in my admin route 
+// Admin route
 app.get('/admin', (req, res) => {
-    res.render('admin', {orders});
+    res.render('admin', { orders });
 });
 
-//submit order route
-//"fname":"a","lname":"s","email":"nadi@yahoo.com","method":"pickup","topping":["pepperoni"],"size":"medium","comments":"","discounts":"on"}
+// Submit order route
+// {"fname":"a","lname":"aa","email":"a",
+// "method":"delivery","toppings":["artichokes"],
+// "size":"small","comment":"","discount":"on"}
 app.post('/submit-order', (req, res) => {
-
-
-    //create a json object to store the order data
-    const order={
-       fname: req.body.fname,
+    
+    // Create a JSON object to store the order data
+    const order = {
+        fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
         method: req.body.method,
@@ -61,13 +51,12 @@ app.post('/submit-order', (req, res) => {
         timestamp: new Date()
     };
 
-    //add order object to orders array
+    // Add order object to orders array
     orders.push(order);
-    res.render('confirmation',{ order});
+    res.render('confirmation', { order });
+});
 
-    });
- 
-    //start the serve and listen on the defined port
-    app.listen(PORT, () => {
+// Listen on the designated port
+app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
-    });
+});
