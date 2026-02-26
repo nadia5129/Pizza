@@ -7,9 +7,7 @@
     <!-- Scripts-->
     <script src="//code.jquery.com/jquery-3.7.1.js"></script>
     <script src="//cdn.datatables.net/2.3.7/js/dataTables.js"></script>
-    <script defer>
-        let table = new Datatable('#order-table');
-    </script>
+
     <!--Styles-->
     <link rel="stylesheet" href="//cdn.datatables.net/2.3.7/css/dataTables.dataTables.css">
 </head>
@@ -41,6 +39,9 @@
         <% }) %>
         </tbody>
     </table>
+      <script defer>
+        let table = new DataTable('#order-table');
+    </script>
     
 </body>
 </html>
